@@ -9,3 +9,18 @@ services:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_DB=${DB_NAME}
     image: postgres:latest
+  app:
+    image: prawee/strapi
+    container_name: my_app_1
+    ports:
+      - "8080:1337"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_CLIENT=postgres
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=${DB_NAME}
+      - DATABASE_USERNAME=${DB_USER}
+      - DATABASE_PASSWORD=${DB_PASSWORD}
+      - DATABASE_SSL=false
