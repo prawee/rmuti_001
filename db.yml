@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db:
+    container_name: my_db_9
+    ports:
+      - "54392:5432"
+    environment:
+      - POSTGRES_PASSWORD=1p@ssw0rd
+      - POSTGRES_USER=prawee
+      - POSTGRES_DB=prawee
+    image: postgres:latest
